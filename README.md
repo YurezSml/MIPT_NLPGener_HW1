@@ -17,19 +17,21 @@
 <img src="./valid/Test_4.jpg" width=auto height=auto/>
 
 ## Структура репозитория
+    ├── data                               # Данные
+    ├────── Friends_processed.csv          # Обработанный датасет
+    ├────── data.pkl                       # Данные для обучения модели
+    ├── model                              # Модель
+    ├────── tokenizer                      # Дообученный токенайзер модели
+    ├────── charact_corpus.pkl             # Корпус реплик персонажа
+    ├────── friends_model.pkl              # Дообученная модель (доступна по ссылке в отчете)
     ├── templates                          # Шаблоны html страниц
     ├────── index.html                     # шаблон главной страницы с ссылками на тесты
-    ├── data                               # Данные
-    ├────── data.pkl                       # Данные для обучения модели
-    ├────── Friends_processed.csv          # Обработанный датасет
-    ├── model                              # Модель
-    ├────── charact_corpus.pkl             # Корпус реплик персонажа
-    ├────── tokenizer                      # Дообученный токенайзер модели
-    ├────── friends_model.pkl              # Дообученная модель
     ├── valid                              # Результаты валидации на тестах
     ├── Analysis.ipynb                     # Анализ данных
     ├── Processing.ipynb                   # Обработка данных
-    ├── train.py                           # Обучение модели
-    ├── inference.py                       # Инференс
+    ├── README.md                          # Краткое описание проекта
     ├── Report_ShmelkovYB.pdf              # Отчет
-    └── README.md                          # Краткое описание проекта
+    ├── inference.py                       # Инференс
+    ├── model.py                           # Модель
+    ├── requirements.txt                   # Используемые библиотеки с версиями
+    └── train.py                           # Обучение модели
