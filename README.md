@@ -1,7 +1,5 @@
 # Разработка Retrieval-Based чат-бота на примере персонажей сериала "Друзья"
 
-## Описание датасета, анализ и предобработка
-
 **Источник данных:** https://www.kaggle.com/datasets/gopinath15/friends-netflix-script-data 
 
 **Количество записей**: 69974
@@ -14,21 +12,21 @@
 * Season – номер сезона
 * Show – название шоу
 
-
-## Анализ и предобработка
-
-
 ## Примеры работы чат-бота
 
-<img src="./resources/Example.jpg" width="400" height="700"/>
+<img src="./valid/Test_4.jpg" width="400" height="700"/>
 
 ## Структура репозитория
     ├── templates                          # Шаблоны html страниц
+    ├────── index.html                     # шаблон главной страницы с ссылками на тесты
     ├── data                               # Данные
     ├────── data.pkl                       # Данные для обучения модели
     ├────── Friends_processed.csv          # Обработанный датасет
     ├── model                              # Модель
     ├────── charact_corpus.pkl             # Корпус реплик персонажа
+    ├────── tokenizer                      # Дообученный токенайзер модели
+    ├────── friends_model.pkl              # Дообученная модель
+    ├── valid                              # Результаты валидации на тестах
     ├── Analysis.ipynb                     # Анализ данных
     ├── Processing.ipynb                   # Обработка данных
     ├── train.py                           # Обучение модели
