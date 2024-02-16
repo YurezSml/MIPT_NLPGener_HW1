@@ -25,11 +25,13 @@
 ## Структура репозитория
     ├── templates                          # Шаблоны html страниц
     ├── data                               # Данные
-    ├────── charact_corpus.pkl             # Корпус реплик персонажа
     ├────── data.pkl                       # Данные для обучения модели
     ├────── Friends_processed.csv          # Обработанный датасет
+    ├── model                              # Модель
+    ├────── charact_corpus.pkl             # Корпус реплик персонажа
     ├── Analysis.ipynb                     # Анализ данных
     ├── Processing.ipynb                   # Обработка данных
-    ├── Learning.ipynb                     # Обучение модели
+    ├── train.py                           # Обучение модели
+    ├── inference.py                       # Инференс
     ├── Report_ShmelkovYB.pdf              # Отчет
     └── README.md                          # Краткое описание проекта
