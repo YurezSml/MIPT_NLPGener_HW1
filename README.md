@@ -14,7 +14,7 @@
 
 ## Примеры работы чат-бота
 
-<img src="./valid/Test_4.jpg" width="400" height="700"/>
+<img src="./valid/Test_4.jpg" width=auto height=auto/>
 
 ## Структура репозитория
     ├── templates                          # Шаблоны html страниц
