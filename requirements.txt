@@ -10,3 +10,4 @@ pickle==4.0
 dill==0.3.7
 flask==2.2.2
 gensim==4.3.0
+werkzeug==2.2.2
