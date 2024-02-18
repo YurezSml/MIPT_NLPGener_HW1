@@ -16,6 +16,8 @@
 
 <img src="./valid/Test_4.jpg" width=auto height=auto/>
 
+Запуск в колабе: https://colab.research.google.com/drive/15yGyk3K_r-KSFm2ZilEsja0z9fnq8rVl
+
 ## Структура репозитория
     ├── data                               # Данные
     ├────── Friends_processed.csv          # Обработанный датасет
