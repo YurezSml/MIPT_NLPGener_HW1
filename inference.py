@@ -93,14 +93,14 @@ def get_ranked_docs(model,
     return best_answers
 
 
-def get_best_answer(query: str, type: str):
-    answer = get_n_relevant_answers(query, type, 1)
+def get_best_answer(query: str, req_type: str):
+    answer = get_n_relevant_answers(query, req_type, 1)
     return answer[0]
 
 
-def get_n_relevant_answers(query: str, type: str, num_answers: int):
+def get_n_relevant_answers(query: str, req_type: str, num_answers: int):
     fixed_corpus = []
-    if type == 'fast':
+    if req_type == 'fast':
         vec_quer = get_query_as_vec(query)
         for neighb in nbrs.kneighbors(vec_quer)[1][0]:
             fixed_corpus.append(corpus[neighb])
@@ -108,7 +108,6 @@ def get_n_relevant_answers(query: str, type: str, num_answers: int):
         fixed_corpus = corpus
     idx = 0
     num_iter = len(fixed_corpus) // N_NEIGHBORS + (len(fixed_corpus) % N_NEIGHBORS != 0)
-    print(f'num_iter: {num_iter}')
     n_relevant_answers_with_score = []
     while idx < num_iter:
         curr_corpus = []
@@ -134,9 +133,9 @@ def index():
 @app.route('/request', methods=['GET', 'POST'])
 def request_answer():
     query = request.args.get('query')
-    type = request.args.get('type')
+    req_type = request.args.get('req_type')
     start_time = time.time()
-    answer = get_best_answer(query, type)
+    answer = get_best_answer(query, req_type)
     end_time = time.time()
     return jsonify({
         "response_code": "200",
@@ -149,10 +148,10 @@ def request_answer():
 @app.route('/retrieve', methods=['GET', 'POST'])
 def request_relevant_answer():
     query = request.args.get('query')
-    type = request.args.get('type')
+    req_type = request.args.get('req_type')
     num_answers = request.args.get('num_answers')    
     start_time = time.time()
-    answers = get_n_relevant_answers(query, type, int(num_answers))
+    answers = get_n_relevant_answers(query, req_type, int(num_answers))
     end_time = time.time()
     return jsonify({
         "response_code": "200",
@@ -169,14 +168,14 @@ def request_dialog_answers():
     queries.append(request.args.get('query_2'))
     queries.append(request.args.get('query_3'))
 
-    type = request.args.get('type')
+    req_type = request.args.get('req_type')
     
     start_time = time.time()
     answers = []
     context_query = ''
     for query in queries:
         context_query = context_query + query
-        answer = get_best_answer(context_query, type)
+        answer = get_best_answer(context_query, req_type)
         answers.append(answer)
         context_query = context_query + ' [U_token] ' + answer + ' [U_token] '
     end_time = time.time()
